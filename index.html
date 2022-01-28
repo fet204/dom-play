@@ -9,25 +9,31 @@
         <!--Style Sheets-->
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/nav.css" />
+        <style>
+            /*
+            div#play span{ 
+                background-color: yellow;
+            }
+            */
+        </style>
     </head>
 
     <body>
         <header>
-            <h1>Title Goes here</h1>
-            <nav class="topnav" id="myTopnav">
-                <a href="index.html" class="active">Home</a>
-                <a href="https://fet204.github.io/Stylin-with-css/" target="_blank">Styling with CSS</a>
-                <a href="#" target="_blank">Name of project goes here</a>
-                <a href="https://github.com/fet204" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/francistran98/" target="_blank">LinkedIn</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-            </nav>
+            <h1>Dom Play</h1>>
         </header>
      
     <main class="wrapper">
-        
-        <h2 class="subheader">Title Goes Here</h2>
-        <p>Content goes here</p>
+        <div id="play">
+            <p><span data-actor="hamlet">Hamlet: To be or not to be?</span></p>
+            <p><span data-actor="skull">Skull: Are you talking to me?</span></p>
+            <p><span data-actor="hamlet">Hamlet: What did you say?</span></p>
+            <p><span data-actor="skull">Skull: No, I'm only a skull.</span></p>
+            <p><span data-actor="hamlet">Hamlet: Good because I thought I was going crazy!</span></p>
+            <p><span data-actor="hamlet">Hamlet: Good because I thought I was going crazy!</span></p>
+            <p><span data-actor="romeo">Romeo: What am I doing here?</span></p>
+
+        </div>
         <footer>
             <p><small>&copy; 2021 by Frank Tran, All Rights Reserved ~ 
                 <a id="html-checker" href="#">Check HTML</a> ~ 
@@ -35,6 +41,39 @@
             </p>
         </footer>
     </main>
+    <script>
+
+        const spans = document.querySelectorAll('div#play span');
+
+        console.log(spans);
+
+        for (const mySpan of spans ){
+            mySpan.addEventListener('click', function(ev){
+                //alert(mySpan.dataset.actor);
+
+                highlightActor(mySpan.dataset.actor);
+
+            });
+        }
+
+        function highlightActor(actor){
+
+            for (const mySpan of spans){
+                if(actor == mySpan.dataset.actor){
+                    mySpan.style.backgroundColor = "yellow";
+                }else{
+                    mySpan.style.backgroundColor = "white";
+                }
+            }
+
+
+
+
+        }
+
+
+        //document.querySelector('span.hamlet').style.backgroundColor = "yellow";
+    </script>
     <script src="js/main.js"></script>
 
 </body>
